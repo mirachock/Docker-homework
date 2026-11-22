@@ -142,3 +142,16 @@ curl: (22) The requested URL returned error: 503
 ### curl -fsS -X POST http://127.0.0.1:8080/increment
 
 {"greeting": "Hello, Docker!", "count": 3, "hostname": "8b27383f355e", "storage": "redis"}
+
+## Работа .env
+
+Создадим .env cо строками 'PORT=6767' и 'GREETING="Hello, Karim!"'\
+(Этот и прошлый запуск - разные)
+
+### curl -fsS http://127.0.0.1:8080/
+
+curl: (7) Failed to connect to 127.0.0.1 port 8080 after 0 ms: Could not connect to server
+
+### curl -fsS http://127.0.0.1:6767/
+
+{"greeting": "Hello, Karim!", "count": 0, "hostname": "60ab683ac7c3", "storage": "redis"}
